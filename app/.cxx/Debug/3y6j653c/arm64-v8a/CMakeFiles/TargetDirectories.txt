@@ -1,0 +1,3 @@
+C:/Flamp/app/.cxx/Debug/3y6j653c/arm64-v8a/CMakeFiles/native-lib.dir
+C:/Flamp/app/.cxx/Debug/3y6j653c/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Flamp/app/.cxx/Debug/3y6j653c/arm64-v8a/CMakeFiles/rebuild_cache.dir

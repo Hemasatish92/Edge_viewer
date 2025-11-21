@@ -1,0 +1,53 @@
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace "com.example.edgeviewer"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.edgeviewer"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        
+        // Native build disabled to allow building the Android app
+        // Native/C++ code requires OpenCV and a configured native toolchain.
+        // To re-enable native build, restore the `externalNativeBuild` and `ndk` blocks
+        // and ensure OpenCV headers/libs are available for CMake.
+    }
+
+    // externalNativeBuild is disabled to avoid invoking CMake during app build.
+    // If you need native libraries, re-enable and ensure dependencies (OpenCV) are present.
+
+    buildFeatures {
+        prefab true
+    }
+
+    // Ensure Java/Kotlin compilation targets match (Kotlin plugin currently targets JVM 17)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // Configure Kotlin JVM target to match Java
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    }
+
+    packagingOptions {
+        pickFirst "**/libc++_shared.so"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
