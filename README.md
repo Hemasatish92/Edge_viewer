@@ -51,8 +51,6 @@ If you plan to re-enable the native OpenCV build for the Android app, follow the
 
 ## Output (sample screenshot)
 
-Below is the sample processed-frame screenshot used by the web viewer. Place your screenshot at `web/assets/sample_processed.png` and it will appear here when viewing `README.md` on GitHub or your local clone.
+Below is the sample processed-frame screenshot used by the web viewer.
+<img width="1764" height="857" alt="image" src="https://github.com/user-attachments/assets/1ab528d4-35c3-40a0-a355-6897861e11d2" />
 
-![Sample processed frame](web/assets/sample_processed.png)
-
-If the image does not display, make sure the file exists at `web/assets/sample_processed.png` and commit it to the repository.
