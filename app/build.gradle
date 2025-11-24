@@ -23,6 +23,11 @@ android {
 
     // externalNativeBuild is disabled to avoid invoking CMake during app build.
     // If you need native libraries, re-enable and ensure dependencies (OpenCV) are present.
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
 
     buildFeatures {
         prefab true

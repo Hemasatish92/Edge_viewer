@@ -1,4 +1,11 @@
 {
+  "name": "edge-viewer-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "npx http-server -c-1 . -p 8080"
+  },
   "dependencies": {
     "typescript": "^5.9.3"
   }

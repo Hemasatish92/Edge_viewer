@@ -45,6 +45,15 @@ class MainActivity : AppCompatActivity() {
         startSystem()
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 10) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                startSystem()
+            }
+        }
+    }
+
     private fun startSystem() {
         textureView.surfaceTextureListener = object: TextureView.SurfaceTextureListener {
             override fun onSurfaceTextureAvailable(st: SurfaceTexture, w: Int, h: Int) {
@@ -62,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 camera.startCamera(surface)
             }
             override fun onSurfaceTextureSizeChanged(st: SurfaceTexture, w: Int, h: Int) {}
-            override fun onSurfaceTextureDestroyed(st: SurfaceTexture): Boolean { renderer.stop(); return true }
+            override fun onSurfaceTextureDestroyed(st: SurfaceTexture): Boolean { if (::renderer.isInitialized) renderer.stop(); return true }
             override fun onSurfaceTextureUpdated(st: SurfaceTexture) {}
         }
     }
